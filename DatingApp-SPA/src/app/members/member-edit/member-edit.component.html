@@ -14,7 +14,7 @@
     <div class="col-sm-4">
       <div class="card">
         <img
-          src="{{ user.photoUrl }}"
+          src="{{ photoUrl }}"
           alt="{{ user.knownAs }}"
           class="card-img-top img-thumbnail"
         />
@@ -93,7 +93,10 @@
             </form>
           </tab>
           <tab heading="Edit Photos">
-            <p>Photo edit will go here</p>
+            <app-photo-editor
+              [photos]="user.photos"
+              (getMemberPhotoChange)="updateMainPhoto($event)"
+            ></app-photo-editor>
           </tab>
         </tabset>
       </div>
